@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DelishBite | Food Website</title>
+  <style>
+    /* Reset and basic styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #fff;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Navbar */
+    nav {
+      background-color: #ff6347;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav ul li a {
+      color: #fff;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #ffe4c4;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: url('https://source.unsplash.com/1600x900/?food,dish') no-repeat center center/cover;
+      height: 100vh;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 2rem;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      background-color: #fff;
+      color: #ff6347;
+      padding: 0.8rem 1.5rem;
+      font-weight: bold;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #ffe4c4;
+    }
+
+    /* Sections */
+    section {
+      padding: 4rem 2rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+      color: #ff6347;
+    }
+
+    /* About Section */
+    .about p {
+      font-size: 1.1rem;
+      color: #555;
+      text-align: center;
+    }
+
+    /* Menu Section */
+    .menu-items {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .menu-item {
+      border: 1px solid #eee;
+      border-radius: 8px;
+      overflow: hidden;
+      background-color: #fafafa;
+      transition: transform 0.3s;
+    }
+
+    .menu-item:hover {
+      transform: scale(1.03);
+    }
+
+    .menu-item img {
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .menu-item .info {
+      padding: 1rem;
+    }
+
+    .menu-item .info h3 {
+      margin-bottom: 0.5rem;
+      color: #333;
+    }
+
+    .menu-item .info p {
+      font-size: 0.95rem;
+      color: #666;
+    }
+
+    /* Contact Section */
+    .contact form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 500px;
+      margin: auto;
+    }
+
+    .contact input,
+    .contact textarea {
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    .contact button {
+      background-color: #ff6347;
+      color: white;
+      border: none;
+      padding: 0.8rem;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .contact button:hover {
+      background-color: #e5533d;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      margin-top: 4rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #ff6347;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">DelishBite</div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <ul id="menu">
+      <li><a href="#">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#menu-section">Menu</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div>
+      <h1>Delicious Food Delivered To You</h1>
+      <p>Fresh. Fast. Tasty.</p>
+      <a href="#menu-section" class="btn">Explore Menu</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about" id="about">
+    <h2 class="section-title">About Us</h2>
+    <p>
+      Welcome to DelishBite – your go-to destination for mouthwatering meals made with love.
+      We believe food should not only taste great but also bring joy to your day.
+    </p>
+  </section>
+
+  <!-- Menu Section -->
+  <section class="menu" id="menu-section">
+    <h2 class="section-title">Our Menu</h2>
+    <div class="menu-items">
+      <div class="menu-item">
+        <img src="./pizza.jpeg" alt="Pizza">
+        <div class="info">
+          <h3>Margherita Pizza</h3>
+          <p>Classic delight with fresh tomatoes, mozzarella cheese, and basil.</p>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img src="./burger.jpeg" alt="Burger">
+        <div class="info">
+          <h3>Cheese Burger</h3>
+          <p>Juicy beef patty with cheddar cheese, lettuce, and our secret sauce.</p>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img src="./salad.jpeg" alt="Salad">
+        <div class="info">
+          <h3>Fresh Garden Salad</h3>
+          <p>A refreshing mix of greens, veggies, and homemade dressing.</p>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img src="./pasta.jpeg" alt="Pasta">
+        <div class="info">
+          <h3>Spaghetti Carbonara</h3>
+          <p>Rich and creamy pasta with bacon, cheese, and black pepper.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact" id="contact">
+    <h2 class="section-title">Contact Us</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 DelishBite. All rights reserved.</p>
+ 
